@@ -1,0 +1,60 @@
+// main function of the language
+init() {
+  // the language supports declaration of constant integers, booleans and strings
+  val anIntegerExample = 12
+  val aStringExample = "Aristo Programming Language"
+  val someBoolean = True
+
+  // you can define predicates as well
+  val aristoIsDead = isDead("Aristo", True)
+
+  // loops and control structures
+
+  if (aristoIsDead == True) {
+    print "Aristo is long gone"
+  }
+  else {
+    print "Aristo lives in our hearts"
+  }
+
+  // every constant also has a truth value
+  val someValue = 1
+
+  while (someValue) {
+    print "This is printed because someValue is true in nature"
+  }
+
+  // you can also define variables
+  var a = 1
+
+  if (True) {
+    val a = 5 // a is 5 now
+  }
+
+  // connective examples
+  val first = True
+  val second = False
+
+  val andValue = first && second // andValue is false
+  val orValue = first || second // orValue is true
+
+
+
+}
+
+// function declarations are like this
+func saySomething() {
+  print "Something something"
+}
+
+// an example predicate declaration
+rule isDead(name, someTruthValue) {
+  if (someTruthValue) {
+    print "He is dead. Sorry :/"
+    return True
+  }
+  else {
+    print "He is alive!"
+    return False
+  }
+}
