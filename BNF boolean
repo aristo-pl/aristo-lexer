@@ -1,0 +1,105 @@
+
+//Program initialization
+<program>:
+		<main_function>
+	|	<function> <program>
+	
+<main_function>: init(){<stmts>}
+<function>: func IDENTIFIER (<argument_list>){<stmts><RETURN_stmt>}
+
+<stmts>:
+		<stmt>
+	|	<stmt> <stmts> 
+	
+<stmt>:
+		<matched>
+	|	<unmatched>
+	
+
+<matched>:
+		if(<logic_expr>)<matched> else <matched>
+	|	<nonif_stmt>
+	
+<unmatched>:
+		if(<logic_expr>)<stmt>
+	|	if(<logic_expr>)<matched> else <unmatched>
+	
+<nonif_stmt>:
+	 	/* nothing */
+	| 	<RETURN_stmt>
+	| 	<assign_stmt>  //var, val , boolean assignments etc. etc.
+	|	<print_stmt>
+	| 	<input_stmt>
+	|	<while_stmt>
+	| 	<comment_stmt>
+	
+<assign_stmt>:
+		<variable> = <boolean_expr>
+	
+<print_stmt>:
+		print LP <IDENTIFIER> RP
+	|	print LP <variable> RP
+	
+<input_stmt>:
+		input <variable> = boolean_expr
+		//User can only input true or false
+
+<RETURN_stmt>:
+		  RETURN <boolean_expr>
+	 |	RETURN <variable>
+	 
+<comment_stmt>:
+	comment
+	
+//LOOPS
+<while_stmt>: <while> LP <logic_expr> RP LCB <stmts> RCB
+
+<logic_expr>:
+		<logic_implies>
+		
+	<logic_implies>:
+			<logic_or>
+		|	<logic_implies> IMPLIES <logic_or>
+		
+	<logic_or>: 
+			<logic_and>
+		|	<logic_or> OR <logic_and>
+		
+	<logic_and>:
+			<logic_negate>
+		|	<logic_and> AND <logic_negate>
+
+	<logic_negate>:
+			<logic_parantesis>
+		|	NEGATION<logic_negate>
+		
+	<logic_parantesis>:
+			<logic_expr>
+		|	( <logic_parantesis> )
+		|	<variable>
+		|	boolean_expr
+        |	<const>	
+//logic expression end
+
+<argument_list>:
+		/*  nothing */
+	| 	<variable>
+	|   <const>
+	|	  <variable> , <argument_list>
+	|	  <const> , <argument_list>
+<variable>:
+		VAR IDENTIFIER
+		
+<const>:
+		VAL IDENTIFIER
+
+<IDENTIFIER>:
+	STRING//Defined in lex
+
+//NONTERMINALS
+
+
+boolean_expr:
+		TRUE         
+	|	FALSE
+	
