@@ -1,0 +1,15 @@
+<boolean_expr>  ->  <boolean_terms>  <boolean_operators>  <boolean_terms>
+                                 | <bool>
+                                 | <boolean_variable> 
+
+<boolean_terms> ->  <boolean_expr>  
+                                 |  <boolean_term>
+
+<boolean_operators>  ->  AND
+                                        |  OR
+		                |   IMPLIES
+                                       |  EQUALS
+
+<boolean_term>   ->   NEGATION  ( <boolean_expr>  )
+                                 |  ( <boolean_expr> )
+                                 |  NEGATION <bool>
