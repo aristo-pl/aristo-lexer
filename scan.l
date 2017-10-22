@@ -10,30 +10,22 @@ rcb \}
 
 assign \=
 equals ==
-greater >
-less <
-greaterequal >=
-lessequal <=
-notequals !=
 not !
 implies =>
 
 main_func init
 
-val_decl val
+const_decl const
 var_decl var
 
 boolean True|False
 string \"(\\.|[^"\\])*\"
-integer [0-9]+
 
 if_stmt if
-elseif_stmt "else if"
 else_stmt else
 while_stmt while
 
 func_decl func
-rule_decl rule
 print_stmt print
 return_stmt return
 
@@ -46,18 +38,14 @@ return_stmt return
 {not}                 printf("NEGATION ");
 {assign}              printf("ASSIGN ");
 {equals}              printf("EQUALS ");
-{notequals}           printf("NOTEQUALS ");
-{lessequal}           printf("LESSEQUAL ");
-{greaterequal}        printf("GREATEREQUAL ");
 {implies}             printf("IMPLIES ");
 
 {if_stmt}               printf("IF ");
 {else_stmt}             printf("ELSE ");
-{elseif_stmt}           printf("ELSEIF ");
 {while_stmt}            printf("WHILE ");
 {print_stmt}            printf("PRINT");
 
-{val_decl}                   printf("VAL ");
+{const_decl}                 printf("CONST ");
 {var_decl}                   printf("VAR ");
 
 {lp}                  printf("LP ");
@@ -66,7 +54,6 @@ return_stmt return
 {rcb}                 printf("RCB ");
 
 {func_decl}                  printf("FUNCTION ");
-{rule_decl}                  printf("RULE ");
 {return_stmt}                printf("RETURN ");
 
 {boolean}             printf("BOOLEAN ");
