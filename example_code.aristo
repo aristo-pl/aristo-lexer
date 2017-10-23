@@ -1,9 +1,8 @@
 // functions are predicate in nature
 // they can only return true or false
-func aFunction(var "a", var "b") {
+func "aFunction" (var "a", var "b") {
   var "This is a string" = True
-  var "a" = "This is a string"
-  var "c" = var "This is Demir" && a || False
+  var "c" = var "This is Demir" && var "a" || False
   return var "c"
 }
 
@@ -27,12 +26,16 @@ func init() {
     var "a" = False
   }
 
-  input(var "This is an input")
+  var "funcVariable" = func "aFunction" ( var "a", var "b" )
   
-  if ("This is an input" == True) {
+  input  (var "This is an input variable")
+  print (var "This is an input variable")
+  
+  if (var "This is an input variable" == True) {
     print("It prints true")
   }
   else {
     print("It prints false")
   }
+  return True
 }
