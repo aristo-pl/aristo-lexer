@@ -1,0 +1,32 @@
+<print_stmt> ->    This nonterminal allows user to print either a string or a variable's truth value; Example: print ("This is a string") or print(var "variable")
+
+<input_stmt> -> This nonterminal allows user to enter an input boolean value Example: input var "aristo is mortal" = userbooleaninput means the variable "aristo is mortal" has now a defined truth value from the user.
+
+<RETURN_stmt> -> This nonterminal statement allows users to return either boolean constants(TRUE or FALSE) or variables(var "a"). This allows users to call functions inside an assignment statement to define the truth value of a variable.
+
+<comment_stmt> -> Allows users to define comment segments which increases readibility of their code.
+
+<while_stmt> -> Allows users to create basic looping statements based on a logical expression comparison. Example: while(var "x" == TRUE)...loop... or while(var "x")...loop... 
+
+<logic_expr> -> Top level of logical expression nonterminals; contains basic logical expression terminals such as OR, AND , IMPLIES and NEGATION.This kind of leveling allows non-ambigiouity of our grammar
+
+<logic_implies> -> Second level nonterminal of logical expression; identifies implies statements ,processes them and calculates them at the last step.
+
+<logic_or> ->  Third level nonterminal of logical expression; identifies or statemets, processes them and calculates them before "implies" statements.
+
+<logic_and> ->  4th level nonterminal of logical expression; identifies and statemets, processes them and calculates them before "or" statements.
+
+<logic_negate> ->  5th level nonterminal of logical expression; identifies negate statemets, processes them and calculates them before "and" statements.
+
+<logic_parantesis>	-> Last level nonterminal of logical expression; identifies parantesis, processes them and calculates them before any other statements.Parantesis as highest precedence allows user to define calculation precedence rather than default.
+
+<argument_list> ->  Allows user to define a list; containing both variables and constants. It allows users to define functions that takes argument or list of arguments.
+
+<variable> -> This nonterminal is the most basic variable expression user can define; which takes a string as it's name "nameOfVariable"; this name holds a truth value of either TRUE or FALSE. 
+User can change this truth value any time after initialization of variable with correct grammar.
+
+<const> -> This nonterminal allows users to define the absolute truth value of a name. Example const "man is mortal" = TRUE. This name's truth value cannot change anything after initialization.
+
+<IDENTIFIER> -> This nonterminal contains any kind of strings as an identifier and stores them in registers as needed.
+
+<boolean_expr> -> This nonterminal either takes TRUE or FALSE as a final form of it's change. This is the last non-terminal any logical expression has.
