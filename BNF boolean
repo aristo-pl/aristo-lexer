@@ -35,6 +35,7 @@
 	
 <assign_stmt>:
 		<variable> = <boolean_expr>
+	|	<variable> = <logic_expr>
 	
 <print_stmt>:
 		print LP <IDENTIFIER> RP
@@ -55,7 +56,7 @@
 <while_stmt>: <while> LP <logic_expr> RP LCB <stmts> RCB
 
 <logic_expr>:
-		<logic_implies>
+	<logic_implies>
 		
 	<logic_implies>:
 			<logic_or>
